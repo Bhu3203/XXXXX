@@ -1,16 +1,12 @@
 import React, { useState } from "react";
 import "./Add_Milk_Record.css";
 
-<<<<<<< HEAD
-const Add_Milk_Record = ({ onSave = () => {} }) => {
-=======
 const Add_Milk_Record = ({ onSave }) => {
->>>>>>> 88f86fa1f9c7eef529b94341abfd584893c31faa
   const [formData, setFormData] = useState({
     date: "",
-    time: "M",
-    cattle: "cow",
-    farmer: "farmer1",
+    time: "M", // Default to morning
+    cattle: "cow", // Default cattle type
+    farmer: "farmer1", // Default farmer name
     idNo: "",
     litre: 0,
     fat: 0,
@@ -24,6 +20,7 @@ const Add_Milk_Record = ({ onSave }) => {
     const { name, value } = e.target;
     setFormData((prev) => {
       const updatedData = { ...prev, [name]: value };
+      // Recalculate total amount when fat or snf changes
       if (name === "fat" || name === "snf") {
         const totalAmount =
           (parseFloat(updatedData.fat) + parseFloat(updatedData.snf)) * pricePerLitre;
@@ -39,11 +36,9 @@ const Add_Milk_Record = ({ onSave }) => {
     const updatedRecords = [...savedRecords, formData];
     localStorage.setItem("milkRecords", JSON.stringify(updatedRecords));
     alert("Information saved successfully!");
-<<<<<<< HEAD
-    onSave(formData); // No error if onSave is missing
-=======
-    onSave(formData);
->>>>>>> 88f86fa1f9c7eef529b94341abfd584893c31faa
+    onSave(formData); // Trigger the callback to notify parent
+
+    // Reset form after saving
     setFormData({
       date: "",
       time: "M",
@@ -58,11 +53,7 @@ const Add_Milk_Record = ({ onSave }) => {
   };
 
   return (
-<<<<<<< HEAD
-    <div className="milk-collection">
-=======
     <div className="col-xl-4 milk-collection">
->>>>>>> 88f86fa1f9c7eef529b94341abfd584893c31faa
       <form onSubmit={handleSubmit}>
         <label htmlFor="date">Date:</label>
         <input
@@ -82,8 +73,8 @@ const Add_Milk_Record = ({ onSave }) => {
           onChange={handleInputChange}
           required
         >
-          <option value="M">M</option>
-          <option value="E">E</option>
+          <option value="M">Morning</option>
+          <option value="E">Evening</option>
         </select>
 
         <label htmlFor="cattle">Cattle:</label>
@@ -144,7 +135,7 @@ const Add_Milk_Record = ({ onSave }) => {
           onChange={handleInputChange}
         />
 
-        <label htmlFor="totalAmount">Tamt:</label>
+        <label htmlFor="totalAmount">Total Amount (₹):</label>
         <input
           type="number"
           id="totalAmount"

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /* General Form Styles */
 .milk-collection {
   max-width: 600px;
@@ -11,6 +10,7 @@
   font-family: 'Roboto', sans-serif;
 }
 
+/* Flexbox layout for the form */
 .milk-collection form {
   display: flex;
   flex-direction: column;
@@ -112,7 +112,8 @@
     font-size: 12px;
     padding: 6px;
   }
-=======
+}
+
 /* General Styling */
 body {
   font-family: Arial, sans-serif;
@@ -130,24 +131,14 @@ body {
   min-height: 100vh;
 }
 
-/* Milk Collection Form */
+/* Milk Collection Form - Additional styling for forms */
 .milk-collection {
   background-color: #d9d9d9;
+  width: 100%;
   padding: 20px;
-  width: 400px;
   border: 1px solid #ccc;
   border-radius: 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Form Labels */
-.milk-collection form label {
-  display: block;
-  margin-top: 10px;
-  margin-bottom: 5px;
-  font-size: 14px;
-  font-weight: bold;
-  color: #333;
 }
 
 /* Form Inputs and Selects */
@@ -193,5 +184,4 @@ body {
 
 .btn1:hover {
   background-color: #45a049;
->>>>>>> 88f86fa1f9c7eef529b94341abfd584893c31faa
 }

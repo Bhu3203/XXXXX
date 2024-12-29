@@ -1,75 +1,5 @@
-<<<<<<< HEAD
 import React, { useEffect, useState } from "react";
-import "./ShowMilkRecord.css";
-=======
-// import React from 'react'
-
-// const AddMilkRecord = () => {
-//   return (
-//     <>
-//     <div className="container1">
-        
-//           <div class="col-xl-8">
-//             <table>
-//               <thead>
-//                 <tr>
-//                   <th>Animal</th>
-//                   <th>Milk (Ltr)</th>
-//                   <th>Payment</th>
-//                   <th>Average Fat</th>
-//                   <th>Member</th>
-//                   <th>F7 Manual Liters</th>
-//                 </tr>
-//               </thead>
-//               <tbody>
-//                 <tr>
-//                   <td>Buffalo</td>
-//                   <td>20.00</td>
-//                   <td>280.00</td>
-//                   <td>5.00</td>
-//                   <td>1</td>
-//                   <td>Manual Liters</td>
-//                 </tr>
-//                 <tr>
-//                   <td>Cow</td>
-//                   <td>0.00</td>
-//                   <td>0.00</td>
-//                   <td>0.00</td>
-//                   <td>0</td>
-//                   <td>Manual Fat</td>
-//                 </tr>
-//                 <tr>
-//                   <td>Total</td>
-//                   <td>20.00</td>
-//                   <td>280.00</td>
-//                   <td>5.00</td>
-//                   <td>1</td>
-//                   <td>Empty</td>
-//                 </tr>
-//               </tbody>
-//             </table>
-//           </div>
-
-//           {/* <div class="footer-buttons">
-//             <span>F5 Edit</span>
-//             <span>F6 Print Slip</span>
-//             <span>F10 Report Shift</span>
-//             <span>F11 Local Sale</span>
-//         </div> */}
-//         </div>
-//       </div>
-//     </>
-//   )
-// }
-
-// export default AddMilkRecord
-
-
-
-import React, { useEffect, useState } from "react";
-// import Add_Milk_Record from "./Add_Milk_Record";
-import "./Add_Milk_Record.css";
->>>>>>> 88f86fa1f9c7eef529b94341abfd584893c31faa
+import "./Add_Milk_Record.css"; // Make sure this CSS is properly defined
 
 const AddMilkRecord = () => {
   const [records, setRecords] = useState([]);
@@ -79,19 +9,16 @@ const AddMilkRecord = () => {
     setRecords(storedRecords);
   }, []);
 
-<<<<<<< HEAD
-  const filteredRecords = records;
+  // Calculate totals and averages for the footer
+  const totalMilk = records.reduce((sum, record) => sum + parseFloat(record.litre || 0), 0);
+  const totalAmount = records.reduce((sum, record) => sum + parseFloat(record.totalAmount || 0), 0);
+  const avgFat = records.length > 0 ? (records.reduce((sum, record) => sum + parseFloat(record.fat || 0), 0) / records.length).toFixed(2) : "0.00";
+  const avgSNF = records.length > 0 ? (records.reduce((sum, record) => sum + parseFloat(record.snf || 0), 0) / records.length).toFixed(2) : "0.00";
 
   return (
     <div className="container5">
       <h2 className="text-center">Milk Records</h2>
-      <div className="show">
-=======
-  return (
-    <div className="container1">
-      <h2 className="text-center">Milk Records</h2>
       <div className="col-xl-8">
->>>>>>> 88f86fa1f9c7eef529b94341abfd584893c31faa
         <table>
           <thead>
             <tr>
@@ -121,7 +48,6 @@ const AddMilkRecord = () => {
           </tbody>
         </table>
       </div>
-<<<<<<< HEAD
 
       <div className="footer-stats">
         <table>
@@ -139,30 +65,12 @@ const AddMilkRecord = () => {
           <tbody>
             <tr>
               <td>Summary</td>
-              <td>{filteredRecords.length}</td>
-              <td>
-                {filteredRecords.length > 0
-                  ? (
-                      filteredRecords.reduce((sum, record) => sum + parseFloat(record.fat || 0), 0) /
-                      filteredRecords.length
-                    ).toFixed(2)
-                  : "0.00"}
-              </td>
-              <td>
-                {filteredRecords.length > 0
-                  ? (
-                      filteredRecords.reduce((sum, record) => sum + parseFloat(record.snf || 0), 0) /
-                      filteredRecords.length
-                    ).toFixed(2)
-                  : "0.00"}
-              </td>
+              <td>{records.length}</td>
+              <td>{avgFat}</td>
+              <td>{avgSNF}</td>
               <td>--</td>
-              <td>
-                {filteredRecords.reduce((sum, record) => sum + parseFloat(record.litre || 0), 0)}
-              </td>
-              <td>
-                {filteredRecords.reduce((sum, record) => sum + parseFloat(record.totalAmount || 0), 0)}
-              </td>
+              <td>{totalMilk}</td>
+              <td>{totalAmount}</td>
             </tr>
           </tbody>
         </table>
@@ -172,10 +80,3 @@ const AddMilkRecord = () => {
 };
 
 export default AddMilkRecord;
-=======
-    </div>
-  );
-};
-
-export default AddMilkRecord;
->>>>>>> 88f86fa1f9c7eef529b94341abfd584893c31faa

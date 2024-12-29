@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./FarmerRecord.css";
 import { useNavigate } from "react-router-dom";
-<<<<<<< HEAD
-// import MilkReport from './MilkReport'
-=======
->>>>>>> 88f86fa1f9c7eef529b94341abfd584893c31faa
 
 export default function FarmerRecord() {
   const [startDate, setStartDate] = useState("");
@@ -24,23 +20,26 @@ export default function FarmerRecord() {
 
   // Filter records based on selected farmer
   useEffect(() => {
+    let filtered = records;
     if (selectedFarmer) {
-      const filtered = records.filter((record) =>
+      filtered = filtered.filter((record) =>
         record.farmer.toLowerCase().includes(selectedFarmer.toLowerCase())
       );
-      setFilteredRecords(filtered);
-    } else {
-      setFilteredRecords(records);
     }
-  }, [selectedFarmer, records]);
+
+    // Filter by date range if both dates are provided
+    if (startDate && endDate) {
+      filtered = filtered.filter((record) => {
+        const recordDate = new Date(record.date);
+        return recordDate >= new Date(startDate) && recordDate <= new Date(endDate);
+      });
+    }
+
+    setFilteredRecords(filtered);
+  }, [selectedFarmer, records, startDate, endDate]);
 
   const handleGenerateReport = () => {
-<<<<<<< HEAD
-    navigate("/admindash/milkreport", { state: { farmerRecords: filteredRecords } });
-    // window.location.href = "/milkreport";
-=======
     navigate("/milkreport", { state: { farmerRecords: filteredRecords } });
->>>>>>> 88f86fa1f9c7eef529b94341abfd584893c31faa
   };
 
   return (
@@ -128,7 +127,7 @@ export default function FarmerRecord() {
               <td>
                 {filteredRecords.length > 0
                   ? (
-                      filteredRecords.reduce((sum, record) => sum + parseFloat(record.fat || 0), 0) /
+                      filteredRecords.reduce((sum, record) => sum + parseFloat(record.fat || 0), 0) / 
                       filteredRecords.length
                     ).toFixed(2)
                   : "0.00"}
@@ -136,7 +135,7 @@ export default function FarmerRecord() {
               <td>
                 {filteredRecords.length > 0
                   ? (
-                      filteredRecords.reduce((sum, record) => sum + parseFloat(record.snf || 0), 0) /
+                      filteredRecords.reduce((sum, record) => sum + parseFloat(record.snf || 0), 0) / 
                       filteredRecords.length
                     ).toFixed(2)
                   : "0.00"}
