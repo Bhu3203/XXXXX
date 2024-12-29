@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-export default function BuyAndSellCattle() {
+export default function BuySellCattle() {
   const [formData, setFormData] = useState({
     sellerName: "",
     mobileNo: "",

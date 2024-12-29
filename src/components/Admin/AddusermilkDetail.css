@@ -134,7 +134,7 @@ table tr:hover {
 /* MilkDetailsDisplay.css */
 
 .milk-display-container {
-  max-width: 1000px;
+  /* max-width: 1000px; */
   margin: 50px auto;
   padding: 20px;
   background-color: #f9fafc;

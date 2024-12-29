@@ -18,7 +18,7 @@ const AddMilkRecord = () => {
   return (
     <div className="container5">
       <h2 className="text-center">Milk Records</h2>
-      <div className="col-xl-8">
+      <div className="col">
         <table>
           <thead>
             <tr>

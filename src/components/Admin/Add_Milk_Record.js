@@ -53,7 +53,7 @@ const Add_Milk_Record = ({ onSave }) => {
   };
 
   return (
-    <div className="col-xl-4 milk-collection">
+    <div className=" milk-collection">
       <form onSubmit={handleSubmit}>
         <label htmlFor="date">Date:</label>
         <input

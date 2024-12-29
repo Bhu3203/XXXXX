@@ -221,7 +221,7 @@ const AdminDashboard = () => {
         </main>
       </div>
 
-      {/* Footer */}
+      Footer
       <footer className="footer">
         <p>© 2024 Sadguru Digitalization | Empowering Farmers</p>
       </footer>

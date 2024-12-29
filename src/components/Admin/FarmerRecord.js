@@ -39,7 +39,7 @@ export default function FarmerRecord() {
   }, [selectedFarmer, records, startDate, endDate]);
 
   const handleGenerateReport = () => {
-    navigate("/milkreport", { state: { farmerRecords: filteredRecords } });
+    navigate("/admindash/milkreport", { state: { farmerRecords: filteredRecords } });
   };
 
   return (
