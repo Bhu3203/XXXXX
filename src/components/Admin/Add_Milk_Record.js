@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import "./Add_Milk_Record.css";
 
+<<<<<<< HEAD
 const Add_Milk_Record = ({ onSave = () => {} }) => {
+=======
+const Add_Milk_Record = ({ onSave }) => {
+>>>>>>> 88f86fa1f9c7eef529b94341abfd584893c31faa
   const [formData, setFormData] = useState({
     date: "",
     time: "M",
@@ -35,7 +39,11 @@ const Add_Milk_Record = ({ onSave = () => {} }) => {
     const updatedRecords = [...savedRecords, formData];
     localStorage.setItem("milkRecords", JSON.stringify(updatedRecords));
     alert("Information saved successfully!");
+<<<<<<< HEAD
     onSave(formData); // No error if onSave is missing
+=======
+    onSave(formData);
+>>>>>>> 88f86fa1f9c7eef529b94341abfd584893c31faa
     setFormData({
       date: "",
       time: "M",
@@ -50,7 +58,11 @@ const Add_Milk_Record = ({ onSave = () => {} }) => {
   };
 
   return (
+<<<<<<< HEAD
     <div className="milk-collection">
+=======
+    <div className="col-xl-4 milk-collection">
+>>>>>>> 88f86fa1f9c7eef529b94341abfd584893c31faa
       <form onSubmit={handleSubmit}>
         <label htmlFor="date">Date:</label>
         <input

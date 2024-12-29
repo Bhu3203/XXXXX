@@ -9,11 +9,19 @@ import SignUpPage from "./SignUpPage";
 import Admin from "./components/Admin/Admin";
 // import Add_Milk_Record from "./components/Admin/Add_Milk_Record";
 // import Dashboard from "./components/Admin/Dashboard";
+<<<<<<< HEAD
 // import Add_User_Milk_Details from "./components/Admin/Add_User_Milk_Details";
 // import FarmerRecord from "./components/Admin/FarmerRecord";
 // import LoanAndFeedRecord from "./components/Admin/LoanAndFeedRecord";
 // import AddMilkRecord from "./components/Admin/AddMilkRecord";
 // import AdminHeader from "./components/Admin/AdminHeader";
+=======
+import Add_User_Milk_Details from "./components/Admin/Add_User_Milk_Details";
+import FarmerRecord from "./components/Admin/FarmerRecord";
+import LoanAndFeedRecord from "./components/Admin/LoanAndFeedRecord";
+import AddMilkRecord from "./components/Admin/AddMilkRecord";
+import AdminHeader from "./components/Admin/AdminHeader";
+>>>>>>> 88f86fa1f9c7eef529b94341abfd584893c31faa
 
 import SideBar from "./components/User/siderBar/SideBar";
 import BuyAndSellCattle from "./components/User/BuyAndSellCattle";
@@ -32,11 +40,18 @@ import BankDetailsPage from "./BankDetailsPage";
 import AboutUs from "./AboutUs";
 import Main from "./Main";
 import MilkReport from "./components/Admin/MilkReport";
+<<<<<<< HEAD
 // import FarmerLoan from "./components/Admin/FarmerLoan";
 import Product from "./Product";
 import AdminProfile from "./components/Admin/AdminProfile";
 // import CattleFeedForm from "./components/Admin/CattleFeedForm";
 // import CustMilkDetails from "./components/Admin/CustMilkDetails";
+=======
+import FarmerLoan from "./components/Admin/FarmerLoan";
+import Product from "./Product";
+import CattleFeedForm from "./components/Admin/CattleFeedForm";
+import CustMilkDetails from "./components/Admin/CustMilkDetails";
+>>>>>>> 88f86fa1f9c7eef529b94341abfd584893c31faa
 
 const customRoute = createBrowserRouter([
   {
@@ -104,8 +119,50 @@ const customRoute = createBrowserRouter([
         element: <MilkReport />,
       },
       {
+<<<<<<< HEAD
         path: "adminprofile",
         element: <AdminProfile />,
+=======
+            path: "addMilk",
+            element: <AddMilkRecord/>
+          },
+      {
+        path: "addmilkrecord",
+        element: <Add_Milk_Record />,
+      },
+      {
+        path: "uesrmilkrecord",
+        element: <Add_User_Milk_Details />,
+      },
+      {
+        path: "custmilkrecord",
+        element: <CustMilkDetails />,
+      },
+      {
+        path: "farmerrecord",
+        element: <FarmerRecord />,
+      },
+      {
+        path: "milkreport",
+        element: <MilkReport />,
+      },
+      {
+        path: "cattlefeed",
+        element: <CattleFeedForm />,
+      },
+
+      {
+        path: "farmerloan",
+        element: <FarmerLoan />,
+      },
+      {
+        path: "loanfeed",
+        element: <LoanAndFeedRecord />,
+      },
+      {
+        path: "productupload",
+        element: <ProductUpload />,
+>>>>>>> 88f86fa1f9c7eef529b94341abfd584893c31faa
       },
     //   {
     //     path: "dashboard",

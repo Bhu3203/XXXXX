@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./FarmerRecord.css";
 import { useNavigate } from "react-router-dom";
+<<<<<<< HEAD
 // import MilkReport from './MilkReport'
+=======
+>>>>>>> 88f86fa1f9c7eef529b94341abfd584893c31faa
 
 export default function FarmerRecord() {
   const [startDate, setStartDate] = useState("");
@@ -32,8 +35,12 @@ export default function FarmerRecord() {
   }, [selectedFarmer, records]);
 
   const handleGenerateReport = () => {
+<<<<<<< HEAD
     navigate("/admindash/milkreport", { state: { farmerRecords: filteredRecords } });
     // window.location.href = "/milkreport";
+=======
+    navigate("/milkreport", { state: { farmerRecords: filteredRecords } });
+>>>>>>> 88f86fa1f9c7eef529b94341abfd584893c31faa
   };
 
   return (

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* General Form Styles */
 .milk-collection {
   max-width: 600px;
@@ -111,4 +112,86 @@
     font-size: 12px;
     padding: 6px;
   }
+=======
+/* General Styling */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9fafb;
+}
+
+/* Container */
+.container1 {
+  margin-left: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Milk Collection Form */
+.milk-collection {
+  background-color: #d9d9d9;
+  padding: 20px;
+  width: 400px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Labels */
+.milk-collection form label {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Form Inputs and Selects */
+.milk-collection form input,
+.milk-collection form select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 14px;
+  background-color: #fff;
+  color: #333;
+  box-sizing: border-box;
+}
+
+.milk-collection form input:focus,
+.milk-collection form select:focus {
+  border-color: #66afe9;
+  outline: none;
+}
+
+/* Dropdown Styling */
+.milk-collection form select {
+  cursor: pointer;
+}
+
+/* Save Button */
+.btn1 {
+  width: 100px;
+  margin-top: 15px;
+  background-color: #4caf50;
+  color: white;
+  padding: 10px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  margin: 20px auto 0; /* Center the button */
+  text-align: center;
+}
+
+.btn1:hover {
+  background-color: #45a049;
+>>>>>>> 88f86fa1f9c7eef529b94341abfd584893c31faa
 }

@@ -15,7 +15,11 @@ export default function CustMilkDetails() {
     );
   
     return (
+<<<<<<< HEAD
       <div className="container8">
+=======
+      <div className="milk-display-container">
+>>>>>>> 88f86fa1f9c7eef529b94341abfd584893c31faa
         <h2>Milk Details Records</h2>
         <input
           type="text"

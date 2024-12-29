@@ -11,6 +11,7 @@ const products = [
     { id: 5, name: "Natural Cow Ghee", category: "Ghee", price: "₹500 / 500ml", img: "img5.png" },
     { id: 6, name: "Buffalo Ghee", category: "Ghee", price: "₹400 / 500ml", img: "img6.png" },
     { id: 7, name: "Pravarsha Natural Paneer", category: "Paneer", price: "₹100 / 200gms", img: "img7.png" },
+<<<<<<< HEAD
     { id: 8, name: "Farm Fresh Homogenised Cow Milk", category: "Milk", price: "₹37 / 500ml", img: "img1.png" },
     { id: 9, name: "Farm Fresh Non Homogenised Cow Milk", category: "Milk", price: "₹37 / 500ml", img: "img2.png" },
     { id: 10, name: "Buffalo Toned Milk", category: "Milk", price: "₹35 / 500ml", img: "img3.png" },
@@ -18,6 +19,8 @@ const products = [
     { id: 12, name: "Natural Cow Ghee", category: "Ghee", price: "₹500 / 500ml", img: "img5.png" },
     { id: 13, name: "Buffalo Ghee", category: "Ghee", price: "₹400 / 500ml", img: "img6.png" },
     { id: 14, name: "Pravarsha Natural Paneer", category: "Paneer", price: "₹100 / 200gms", img: "img7.png" },
+=======
+>>>>>>> 88f86fa1f9c7eef529b94341abfd584893c31faa
 ];
 
 const Product = () => {
@@ -44,7 +47,11 @@ const Product = () => {
             </div>
             <div className="product-container">
                 {filteredProducts.map(product => (
+<<<<<<< HEAD
                     <div key={product.id} className="product-card   card">
+=======
+                    <div key={product.id} className="product-card">
+>>>>>>> 88f86fa1f9c7eef529b94341abfd584893c31faa
                         <img src={product.img} alt={product.name} className="product-image" />
                         <h3>{product.name}</h3>
                         <p>{product.price}</p>

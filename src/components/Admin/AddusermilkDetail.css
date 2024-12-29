@@ -54,6 +54,7 @@
 
   /* ******************************************************************************************************** */
 
+<<<<<<< HEAD
  /* AddusermilkDetail.css */
 
 /* Container Styling */
@@ -132,4 +133,50 @@ table tr:hover {
   }
 }
 
+=======
+  /* MilkDetailsDisplay.css */
+.milk-display-container {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9fafc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .milk-display-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #4a4e69;
+  }
+  
+  .milk-display-container input {
+    width: 300px;
+    padding: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .milk-display-container table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .milk-display-container th,
+  .milk-display-container td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .milk-display-container th {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .milk-display-container tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+>>>>>>> 88f86fa1f9c7eef529b94341abfd584893c31faa
   

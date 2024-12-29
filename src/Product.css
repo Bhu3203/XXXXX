@@ -56,7 +56,11 @@ h1 {
 }
 
 /* Product Card */
+<<<<<<< HEAD
 .card {
+=======
+.product-card {
+>>>>>>> 88f86fa1f9c7eef529b94341abfd584893c31faa
   width: 200px;
   border: 1px solid #ddd;
   border-radius: 8px;
