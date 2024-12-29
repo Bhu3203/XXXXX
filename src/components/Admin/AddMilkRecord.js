@@ -1,131 +1,96 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
+import "./ShowMilkRecord.css";
 
 const AddMilkRecord = () => {
+  const [records, setRecords] = useState([]);
+
+  useEffect(() => {
+    const storedRecords = JSON.parse(localStorage.getItem("milkRecords")) || [];
+    setRecords(storedRecords);
+  }, []);
+
+  const filteredRecords = records;
+
   return (
-    <>
-    <div className="container1">
-        <div className="row">
-          <div className="col-xl-4  milk-collection">
-            <form action="">
-              <label htmlFor="">Time</label>
-              <select id="cattle_type" name="cattle_type" required>
-                <option value="cow">M</option>
-                <option value="buffalo">E</option>
-              </select>
-              <label htmlFor="">Cattle</label>
-              <select id="cattle_type" name="cattle_type" required>
-                <option value="cow">Cow</option>
-                <option value="buffalo">Buffalo</option>
-              </select>{" "}
-              <br />
-              <label htmlFor="">Id No:</label>
-              <input type="text" />
-              <br />
-              <label htmlFor="">Name:</label>
-              <input type="" className="name" /> <br />
-              <label htmlFor="">Litre:</label>
-              <input type="number" /> <br />
-              <label htmlFor="">Fat:</label>
-              <input type="Number" /> <br />
-              <label htmlFor="">SNF:</label>
-              <input type="number" /> <br />
-              <label htmlFor="">P/Lit</label>
-              <input type="number" name="" id="" /> <br />
-              <label htmlFor="">Tamt</label>
-              <input type="number" name="" id="" /> <br />
-              <button type="submit">Save</button>
-            </form>
-          </div>
-          {/* <div className="Table1"> */}
-
-          <div className="col-xl-8  Table">
-            <table>
-              <thead>
-                <tr>
-                  <th>Id No</th>
-                  <th>Time</th>
-                  <th>Animal</th>
-                  <th>Name</th>
-                  <th>Liters</th>
-                  <th>Fat</th>
-                  <th>SNF</th>
-                  <th>Price/Liter</th>
-                  <th>Payment</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>M</td>
-                  <td>Buffalo</td>
-                  <td>Banerjee</td>
-                  <td>20.00</td>
-                  <td>4.00</td>
-                  <td>6.70</td>
-                  <td>45.00</td>
-                  <td>200.00</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        {/* <div class="table-container"> */}
-        <div class="row">
-          <div class="col-xl-4 milk-collection">
-            {/* <img src={milk_can} alt=""  className="img-fluid"/> */}
-          </div>
-          <div class="col-xl-8">
-            <table>
-              <thead>
-                <tr>
-                  <th>Animal</th>
-                  <th>Milk (Ltr)</th>
-                  <th>Payment</th>
-                  <th>Average Fat</th>
-                  <th>Member</th>
-                  <th>F7 Manual Liters</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Buffalo</td>
-                  <td>20.00</td>
-                  <td>280.00</td>
-                  <td>5.00</td>
-                  <td>1</td>
-                  <td>Manual Liters</td>
-                </tr>
-                <tr>
-                  <td>Cow</td>
-                  <td>0.00</td>
-                  <td>0.00</td>
-                  <td>0.00</td>
-                  <td>0</td>
-                  <td>Manual Fat</td>
-                </tr>
-                <tr>
-                  <td>Total</td>
-                  <td>20.00</td>
-                  <td>280.00</td>
-                  <td>5.00</td>
-                  <td>1</td>
-                  <td>Empty</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          {/* <div class="footer-buttons">
-            <span>F5 Edit</span>
-            <span>F6 Print Slip</span>
-            <span>F10 Report Shift</span>
-            <span>F11 Local Sale</span>
-        </div> */}
-        </div>
+    <div className="container5">
+      <h2 className="text-center">Milk Records</h2>
+      <div className="show">
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Animal</th>
+              <th>Milk (Ltr)</th>
+              <th>Fat</th>
+              <th>SNF</th>
+              <th>Payment</th>
+              <th>Farmer</th>
+            </tr>
+          </thead>
+          <tbody>
+            {records.map((record, index) => (
+              <tr key={index}>
+                <td>{record.date}</td>
+                <td>{record.time}</td>
+                <td>{record.cattle}</td>
+                <td>{record.litre}</td>
+                <td>{record.fat}</td>
+                <td>{record.snf}</td>
+                <td>{record.totalAmount}</td>
+                <td>{record.farmer}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
-    </>
-  )
-}
 
-export default AddMilkRecord
+      <div className="footer-stats">
+        <table>
+          <thead>
+            <tr>
+              <th>Total & Avg</th>
+              <th>Total Entries</th>
+              <th>Avg FAT</th>
+              <th>Avg SNF</th>
+              <th>Avg Degree/%</th>
+              <th>Total Milk/L</th>
+              <th>Total Amount/₹</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Summary</td>
+              <td>{filteredRecords.length}</td>
+              <td>
+                {filteredRecords.length > 0
+                  ? (
+                      filteredRecords.reduce((sum, record) => sum + parseFloat(record.fat || 0), 0) /
+                      filteredRecords.length
+                    ).toFixed(2)
+                  : "0.00"}
+              </td>
+              <td>
+                {filteredRecords.length > 0
+                  ? (
+                      filteredRecords.reduce((sum, record) => sum + parseFloat(record.snf || 0), 0) /
+                      filteredRecords.length
+                    ).toFixed(2)
+                  : "0.00"}
+              </td>
+              <td>--</td>
+              <td>
+                {filteredRecords.reduce((sum, record) => sum + parseFloat(record.litre || 0), 0)}
+              </td>
+              <td>
+                {filteredRecords.reduce((sum, record) => sum + parseFloat(record.totalAmount || 0), 0)}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+};
+
+export default AddMilkRecord;

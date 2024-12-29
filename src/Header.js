@@ -36,6 +36,11 @@ export default function Header() {
                   About Us
                 </Link>
               </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/product">
+                  Product
+                </Link>
+              </li>
             </ul>
             <button
               className="btn btn-outline-success d-flex me-2"

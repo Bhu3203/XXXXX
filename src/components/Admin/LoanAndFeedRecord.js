@@ -1,51 +1,50 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-export default function CattleFeedManagement() {
-  const [feedRecords, setFeedRecords] = useState([
-    {
-      farmerId: 'F001',
-      farmerName: 'John Doe',
-      date: '01/12/2024',
-      feedType: 'Green Fodder',
-      quantity: 100,
-      unitPrice: 15,
-      totalCost: 1500,
-      amountPaid: 1000,
-      amountLeft: 500,
-      dueDate: '05/12/2024',
-      supplier: 'ABC Feeds',
-      remarks: 'Delivered',
-    },
-    {
-      farmerId: 'F002',
-      farmerName: 'Jane Smith',
-      date: '02/12/2024',
-      feedType: 'Dry Fodder',
-      quantity: 50,
-      unitPrice: 20,
-      totalCost: 1000,
-      amountPaid: 500,
-      amountLeft: 500,
-      dueDate: '06/12/2024',
-      supplier: 'XYZ Feeds',
-      remarks: 'Pending',
-    },
-  ]);
-
+export default function LoanAndFeedRecord() {
+  const [feedRecords, setFeedRecords] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
 
-  
+  // Load data from localStorage on component mount
+  useEffect(() => {
+    const storedFeeds = JSON.parse(localStorage.getItem('cattleFeeds')) || [];
+    const enrichedFeeds = storedFeeds.map((record, index) => ({
+      farmerId: `F00${index + 1}`,
+      farmerName: record.farmerName || '',
+      date: record.date || '',
+      feedType: record.feedType || '',
+      quantity: record.quantity || 0,
+      unitPrice: record.cost || 0,
+      totalCost: (record.quantity || 0) * (record.cost || 0),
+      amountPaid: 0, // Default to zero, can be edited
+      amountLeft: (record.quantity || 0) * (record.cost || 0),
+      dueDate: '', // Add due date manually if needed
+      supplier: record.supplierName || '',
+      remarks: 'Pending',
+    }));
+    setFeedRecords(enrichedFeeds);
+  }, []);
+
+  // Handle search functionality
   const filteredRecords = feedRecords.filter(
     (record) =>
       record.farmerName.toLowerCase().includes(searchQuery.toLowerCase()) ||
       record.farmerId.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+  // Update Amount Paid and Amount Left dynamically
+  const handleAmountPaidChange = (index, value) => {
+    const updatedRecords = [...feedRecords];
+    const amountPaid = parseFloat(value) || 0;
+    updatedRecords[index].amountPaid = amountPaid;
+    updatedRecords[index].amountLeft = updatedRecords[index].totalCost - amountPaid;
+    setFeedRecords(updatedRecords);
+  };
+
   return (
     <div>
       <h1>Cattle Feed Management</h1>
-      
-    
+
+      {/* Search Bar */}
       <div style={{ marginBottom: '20px' }}>
         <input
           type="text"
@@ -56,7 +55,7 @@ export default function CattleFeedManagement() {
         />
       </div>
 
-     
+      {/* Feed Records Table */}
       <table border="1" style={{ width: '100%', borderCollapse: 'collapse', marginTop: '20px' }}>
         <thead>
           <tr>
@@ -75,8 +74,7 @@ export default function CattleFeedManagement() {
           </tr>
         </thead>
         <tbody>
-          {feedRecords.map((record, index) => {
-           
+          {filteredRecords.map((record, index) => {
             const isHighlighted =
               record.farmerName.toLowerCase().includes(searchQuery.toLowerCase()) ||
               record.farmerId.toLowerCase().includes(searchQuery.toLowerCase());
@@ -96,9 +94,16 @@ export default function CattleFeedManagement() {
                 <td>{record.quantity}</td>
                 <td>{record.unitPrice}</td>
                 <td>{record.totalCost}</td>
-                <td>{record.amountPaid}</td>
+                <td>
+                  <input
+                    type="number"
+                    value={record.amountPaid}
+                    onChange={(e) => handleAmountPaidChange(index, e.target.value)}
+                    style={{ width: '80px' }}
+                  />
+                </td>
                 <td>{record.amountLeft}</td>
-                <td>{record.dueDate}</td>
+                <td>{record.dueDate || 'N/A'}</td>
                 <td>{record.supplier}</td>
                 <td>{record.remarks}</td>
               </tr>

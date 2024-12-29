@@ -1,0 +1,117 @@
+/* AddMilkRecord.css */
+
+/* body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f4f8;
+    color: #333;
+  } */
+  
+  .container1 {
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 95%;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .text-center {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #007bff;
+    font-weight: bold;
+  }
+  
+  .show {
+    margin: 0 auto;
+    overflow-x: auto;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  thead {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  thead th {
+    padding: 15px;
+    text-align: left;
+    font-weight: 700;
+    font-size: 1rem;
+  }
+  
+  tbody td {
+    padding: 12px;
+    border: 1px solid #121111;
+    text-align: left;
+    font-size: 0.9rem;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  tr:hover {
+    background-color: #f1f5f9;
+  }
+  
+  .footer-stats {
+    margin-top: 20px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .footer-stats table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .footer-stats th {
+    background-color: #28a745;
+    color: rgb(4, 4, 4);
+    padding: 15px;
+    text-align: left;
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  
+  .footer-stats td {
+    padding: 12px;
+    border: 1px solid #e0e0e0;
+    text-align: left;
+    font-size: 0.9rem;
+  }
+  
+  .footer-stats tr:nth-child(odd) {
+    background-color: #090909;
+  }
+  
+  .footer-stats tr:hover {
+    background-color: #e2e6ea;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .text-center {
+      font-size: 1.5rem;
+    }
+  
+    thead th, tbody td {
+      padding: 8px;
+      font-size: 0.85rem;
+    }
+  
+    .footer-stats th, .footer-stats td {
+      padding: 8px;
+      font-size: 0.85rem;
+    }
+  }
+  

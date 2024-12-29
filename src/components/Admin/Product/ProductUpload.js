@@ -79,14 +79,7 @@ const ProductUpload = () => {
                             <input type="number" id="stock" name="stock" placeholder="Enter stock quantity" />
                         </div>
 
-                        <div className="form-group">
-                            <label htmlFor="rams">Product RAMs</label>
-                            <select id="rams" name="rams">
-                                <option value="4GB">4GB</option>
-                                <option value="8GB">8GB</option>
-                                {/* Add more options here */}
-                            </select>
-                        </div>
+                        
                     </div>
 
                     <div className="form-group">

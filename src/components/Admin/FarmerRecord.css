@@ -1,0 +1,93 @@
+/* General Container */
+.milk-record-container {
+    background-color: #0f111a;
+    color: #ffffff;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Filters Section */
+  .filters {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .filters label {
+    font-size: 14px;
+  }
+  
+  .filters input,
+  .filters select {
+    margin-left: 5px;
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #444;
+    background-color: #1a1c29;
+    color: #fff;
+  }
+  
+  .filters button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 20px; /* Added space between select farmer and generate button */
+  }
+  
+  /* Table Section */
+  .table-container {
+    overflow-x: auto;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #1a1c29;
+  }
+  
+  thead {
+    background-color: #222431;
+  }
+  
+  thead th {
+    text-align: left;
+    padding: 10px;
+    font-size: 14px;
+    border-bottom: 1px solid #333;
+  }
+  
+  tbody tr {
+    border-bottom: 1px solid #333;
+  }
+  
+  tbody tr:hover {
+    background-color: #2a2d3e;
+  }
+  
+  tbody td {
+    padding: 10px;
+    font-size: 13px;
+  }
+  
+  /* Footer Stats */
+  .footer-stats {
+    margin-top: 20px;
+  }
+  
+  .footer-stats table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  .footer-stats th,
+  .footer-stats td {
+    text-align: center;
+    padding: 8px;
+    border: 1px solid #333;
+  }
+  

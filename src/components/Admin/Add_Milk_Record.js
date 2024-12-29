@@ -1,133 +1,152 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Add_Milk_Record.css";
-// import  milk_can from ".milk-can.jpg"
-export default function Add_Milk_Record() {
+
+const Add_Milk_Record = ({ onSave = () => {} }) => {
+  const [formData, setFormData] = useState({
+    date: "",
+    time: "M",
+    cattle: "cow",
+    farmer: "farmer1",
+    idNo: "",
+    litre: 0,
+    fat: 0,
+    snf: 0,
+    totalAmount: 0,
+  });
+
+  const pricePerLitre = 50; // Constant price per litre
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => {
+      const updatedData = { ...prev, [name]: value };
+      if (name === "fat" || name === "snf") {
+        const totalAmount =
+          (parseFloat(updatedData.fat) + parseFloat(updatedData.snf)) * pricePerLitre;
+        updatedData.totalAmount = isNaN(totalAmount) ? 0 : totalAmount;
+      }
+      return updatedData;
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const savedRecords = JSON.parse(localStorage.getItem("milkRecords")) || [];
+    const updatedRecords = [...savedRecords, formData];
+    localStorage.setItem("milkRecords", JSON.stringify(updatedRecords));
+    alert("Information saved successfully!");
+    onSave(formData); // No error if onSave is missing
+    setFormData({
+      date: "",
+      time: "M",
+      cattle: "cow",
+      farmer: "farmer1",
+      idNo: "",
+      litre: 0,
+      fat: 0,
+      snf: 0,
+      totalAmount: 0,
+    });
+  };
+
   return (
-    <>
-      {/* <div className="container"> */}
+    <div className="milk-collection">
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="date">Date:</label>
+        <input
+          type="date"
+          id="date"
+          name="date"
+          value={formData.date}
+          onChange={handleInputChange}
+          required
+        />
 
-      <div className="container1">
-        <div className="row">
-          <div className="col-xl-4  milk-collection">
-            <form action="">
-              <label htmlFor="">Time</label>
-              <select id="cattle_type" name="cattle_type" required>
-                <option value="cow">M</option>
-                <option value="buffalo">E</option>
-              </select>
-              <label htmlFor="">Cattle</label>
-              <select id="cattle_type" name="cattle_type" required>
-                <option value="cow">Cow</option>
-                <option value="buffalo">Buffalo</option>
-              </select>{" "}
-              <br />
-              <label htmlFor="">Id No:</label>
-              <input type="text" />
-              <br />
-              <label htmlFor="">Name:</label>
-              <input type="" className="name" /> <br />
-              <label htmlFor="">Litre:</label>
-              <input type="number" /> <br />
-              <label htmlFor="">Fat:</label>
-              <input type="Number" /> <br />
-              <label htmlFor="">SNF:</label>
-              <input type="number" /> <br />
-              <label htmlFor="">P/Lit</label>
-              <input type="number" name="" id="" /> <br />
-              <label htmlFor="">Tamt</label>
-              <input type="number" name="" id="" /> <br />
-              <button type="submit">Save</button>
-            </form>
-          </div>
-          {/* <div className="Table1"> */}
+        <label htmlFor="time">Time:</label>
+        <select
+          id="time"
+          name="time"
+          value={formData.time}
+          onChange={handleInputChange}
+          required
+        >
+          <option value="M">M</option>
+          <option value="E">E</option>
+        </select>
 
-          <div className="col-xl-8  Table">
-            <table>
-              <thead>
-                <tr>
-                  <th>Id No</th>
-                  <th>Time</th>
-                  <th>Animal</th>
-                  <th>Name</th>
-                  <th>Liters</th>
-                  <th>Fat</th>
-                  <th>SNF</th>
-                  <th>Price/Liter</th>
-                  <th>Payment</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>M</td>
-                  <td>Buffalo</td>
-                  <td>Banerjee</td>
-                  <td>20.00</td>
-                  <td>4.00</td>
-                  <td>6.70</td>
-                  <td>45.00</td>
-                  <td>200.00</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
+        <label htmlFor="cattle">Cattle:</label>
+        <select
+          id="cattle"
+          name="cattle"
+          value={formData.cattle}
+          onChange={handleInputChange}
+          required
+        >
+          <option value="cow">Cow</option>
+          <option value="buffalo">Buffalo</option>
+        </select>
 
-        {/* <div class="table-container"> */}
-        <div class="row">
-          <div class="col-xl-4 milk-collection">
-            {/* <img src={milk_can} alt=""  className="img-fluid"/> */}
-          </div>
-          <div class="col-xl-8">
-            <table>
-              <thead>
-                <tr>
-                  <th>Animal</th>
-                  <th>Milk (Ltr)</th>
-                  <th>Payment</th>
-                  <th>Average Fat</th>
-                  <th>Member</th>
-                  <th>F7 Manual Liters</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Buffalo</td>
-                  <td>20.00</td>
-                  <td>280.00</td>
-                  <td>5.00</td>
-                  <td>1</td>
-                  <td>Manual Liters</td>
-                </tr>
-                <tr>
-                  <td>Cow</td>
-                  <td>0.00</td>
-                  <td>0.00</td>
-                  <td>0.00</td>
-                  <td>0</td>
-                  <td>Manual Fat</td>
-                </tr>
-                <tr>
-                  <td>Total</td>
-                  <td>20.00</td>
-                  <td>280.00</td>
-                  <td>5.00</td>
-                  <td>1</td>
-                  <td>Empty</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+        <label htmlFor="farmer">Farmer Name:</label>
+        <input
+          type="text"
+          id="farmer"
+          name="farmer"
+          value={formData.farmer}
+          onChange={handleInputChange}
+          required
+        />
 
-          {/* <div class="footer-buttons">
-            <span>F5 Edit</span>
-            <span>F6 Print Slip</span>
-            <span>F10 Report Shift</span>
-            <span>F11 Local Sale</span>
-        </div> */}
-        </div>
-      </div>
-      {/* </div> */}
-    </>
+        <label htmlFor="idNo">Id No:</label>
+        <input
+          type="text"
+          id="idNo"
+          name="idNo"
+          value={formData.idNo}
+          onChange={handleInputChange}
+        />
+
+        <label htmlFor="litre">Litre:</label>
+        <input
+          type="number"
+          id="litre"
+          name="litre"
+          value={formData.litre}
+          onChange={handleInputChange}
+        />
+
+        <label htmlFor="fat">Fat:</label>
+        <input
+          type="number"
+          id="fat"
+          name="fat"
+          value={formData.fat}
+          onChange={handleInputChange}
+        />
+
+        <label htmlFor="snf">SNF:</label>
+        <input
+          type="number"
+          id="snf"
+          name="snf"
+          value={formData.snf}
+          onChange={handleInputChange}
+        />
+
+        <label htmlFor="totalAmount">Tamt:</label>
+        <input
+          type="number"
+          id="totalAmount"
+          name="totalAmount"
+          value={formData.totalAmount}
+          readOnly
+        />
+
+        <button type="submit" className="btn1">
+          Save
+        </button>
+      </form>
+    </div>
   );
-}
+};
+
+export default Add_Milk_Record;
