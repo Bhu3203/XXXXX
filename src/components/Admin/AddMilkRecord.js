@@ -9,11 +9,32 @@ const AddMilkRecord = () => {
     setRecords(storedRecords);
   }, []);
 
- 
-  const totalMilk = records.reduce((sum, record) => sum + parseFloat(record.litre || 0), 0);
-  const totalAmount = records.reduce((sum, record) => sum + parseFloat(record.totalAmount || 0), 0);
-  const avgFat = records.length > 0 ? (records.reduce((sum, record) => sum + parseFloat(record.fat || 0), 0) / records.length).toFixed(2) : "0.00";
-  const avgSNF = records.length > 0 ? (records.reduce((sum, record) => sum + parseFloat(record.snf || 0), 0) / records.length).toFixed(2) : "0.00";
+  const totalMilk = records.reduce(
+    (sum, record) => sum + parseFloat(record.litre || 0),
+    0
+  );
+  const totalAmount = records.reduce(
+    (sum, record) => sum + parseFloat(record.totalAmount || 0),
+    0
+  );
+  const avgFat =
+    records.length > 0
+      ? (
+          records.reduce(
+            (sum, record) => sum + parseFloat(record.fat || 0),
+            0
+          ) / records.length
+        ).toFixed(2)
+      : "0.00";
+  const avgSNF =
+    records.length > 0
+      ? (
+          records.reduce(
+            (sum, record) => sum + parseFloat(record.snf || 0),
+            0
+          ) / records.length
+        ).toFixed(2)
+      : "0.00";
 
   return (
     <div className="container5">
@@ -42,36 +63,9 @@ const AddMilkRecord = () => {
                 <td>{record.fat}</td>
                 <td>{record.snf}</td>
                 <td>{record.totalAmount}</td>
-                <td>{record.farmer}</td>
+                <td>{record.farmerName}</td>
               </tr>
             ))}
-          </tbody>
-        </table>
-      </div>
-
-      <div className="footer-stats">
-        <table>
-          <thead>
-            <tr>
-              <th>Total & Avg</th>
-              <th>Total Entries</th>
-              <th>Avg FAT</th>
-              <th>Avg SNF</th>
-              <th>Avg Degree/%</th>
-              <th>Total Milk/L</th>
-              <th>Total Amount/₹</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Summary</td>
-              <td>{records.length}</td>
-              <td>{avgFat}</td>
-              <td>{avgSNF}</td>
-              <td>--</td>
-              <td>{totalMilk}</td>
-              <td>{totalAmount}</td>
-            </tr>
           </tbody>
         </table>
       </div>
