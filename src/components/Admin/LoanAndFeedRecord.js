@@ -4,7 +4,7 @@ export default function LoanAndFeedRecord() {
   const [feedRecords, setFeedRecords] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
 
-  // Load data from localStorage on component mount
+ 
   useEffect(() => {
     const storedFeeds = JSON.parse(localStorage.getItem('cattleFeeds')) || [];
     const enrichedFeeds = storedFeeds.map((record, index) => ({
@@ -15,23 +15,23 @@ export default function LoanAndFeedRecord() {
       quantity: record.quantity || 0,
       unitPrice: record.cost || 0,
       totalCost: (record.quantity || 0) * (record.cost || 0),
-      amountPaid: 0, // Default to zero, can be edited
+      amountPaid: 0, 
       amountLeft: (record.quantity || 0) * (record.cost || 0),
-      dueDate: '', // Add due date manually if needed
+      dueDate: '', 
       supplier: record.supplierName || '',
       remarks: 'Pending',
     }));
     setFeedRecords(enrichedFeeds);
   }, []);
 
-  // Handle search functionality
+  
   const filteredRecords = feedRecords.filter(
     (record) =>
       record.farmerName.toLowerCase().includes(searchQuery.toLowerCase()) ||
       record.farmerId.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  // Update Amount Paid and Amount Left dynamically
+
   const handleAmountPaidChange = (index, value) => {
     const updatedRecords = [...feedRecords];
     const amountPaid = parseFloat(value) || 0;
@@ -44,7 +44,7 @@ export default function LoanAndFeedRecord() {
     <div>
       <h1>Cattle Feed Management</h1>
 
-      {/* Search Bar */}
+  
       <div style={{ marginBottom: '20px' }}>
         <input
           type="text"
@@ -55,7 +55,7 @@ export default function LoanAndFeedRecord() {
         />
       </div>
 
-      {/* Feed Records Table */}
+   
       <table border="1" style={{ width: '100%', borderCollapse: 'collapse', marginTop: '20px' }}>
         <thead>
           <tr>

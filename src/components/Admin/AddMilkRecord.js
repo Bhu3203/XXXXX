@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./Add_Milk_Record.css"; // Make sure this CSS is properly defined
+import "./Add_Milk_Record.css";
 
 const AddMilkRecord = () => {
   const [records, setRecords] = useState([]);
@@ -9,7 +9,7 @@ const AddMilkRecord = () => {
     setRecords(storedRecords);
   }, []);
 
-  // Calculate totals and averages for the footer
+ 
   const totalMilk = records.reduce((sum, record) => sum + parseFloat(record.litre || 0), 0);
   const totalAmount = records.reduce((sum, record) => sum + parseFloat(record.totalAmount || 0), 0);
   const avgFat = records.length > 0 ? (records.reduce((sum, record) => sum + parseFloat(record.fat || 0), 0) / records.length).toFixed(2) : "0.00";

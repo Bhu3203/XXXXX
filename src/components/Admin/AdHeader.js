@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { FaUserCircle } from "react-icons/fa"; // Profile icon from react-icons
+import { FaUserCircle } from "react-icons/fa"; 
 
-// Modal Component for confirmation
+
 const ConfirmationModal = ({ isOpen, onClose, onConfirm }) => {
   if (!isOpen) return null;
 
@@ -28,20 +28,20 @@ const AdHeader = () => {
   const [showModal, setShowModal] = useState(false);
 
   const handleProfileClick = () => {
-    navigate("/admindash/adminprofile"); // Navigates to the Profile page
+    navigate("/admindash/adminprofile"); 
   };
 
   const handleLogoutClick = () => {
-    setShowModal(true); // Show the logout confirmation modal
+    setShowModal(true); 
   };
 
   const handleLogoutConfirm = () => {
-    setShowModal(false); // Close the modal
-    navigate("/Main"); // Navigate to the Main page
+    setShowModal(false);
+    navigate("/Main"); 
   };
 
   const handleModalClose = () => {
-    setShowModal(false); // Close the modal without logging out
+    setShowModal(false); 
   };
 
   return (
@@ -62,7 +62,7 @@ const AdHeader = () => {
         </div>
       </nav>
 
-      {/* Confirmation Modal */}
+    
       <ConfirmationModal
         isOpen={showModal}
         onClose={handleModalClose}
@@ -72,7 +72,7 @@ const AdHeader = () => {
   );
 };
 
-// Navbar and button styles
+
 const styles = {
   navbar: {
     display: "flex",
@@ -108,7 +108,7 @@ const styles = {
   },
 };
 
-// Styles for the Modal
+
 const modalStyles = {
   overlay: {
     position: "fixed",

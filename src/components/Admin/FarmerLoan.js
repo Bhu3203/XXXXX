@@ -7,13 +7,13 @@ const FarmerLoan = () => {
   const [loanReason, setLoanReason] = useState("");
   const [loans, setLoans] = useState([]);
 
-  // Load loans from localStorage on mount
+
   useEffect(() => {
     const storedLoans = JSON.parse(localStorage.getItem("farmerLoans")) || [];
     setLoans(storedLoans);
   }, []);
 
-  // Save loans to localStorage
+
   useEffect(() => {
     localStorage.setItem("farmerLoans", JSON.stringify(loans));
   }, [loans]);

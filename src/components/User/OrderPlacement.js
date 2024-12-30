@@ -19,7 +19,7 @@ const OrderPlacement = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Dairy Order placed:", orderDetails);
-    // Add logic to handle dairy product order placement, e.g., API call
+  
   };
 
   return (
@@ -30,7 +30,7 @@ const OrderPlacement = () => {
         </Card.Header>
         <Card.Body>
           <Form onSubmit={handleSubmit}>
-            {/* Product Selection */}
+        
             <Form.Group controlId="product" className="mb-3">
               <Form.Label>Dairy Product</Form.Label>
               <Form.Select
@@ -49,7 +49,7 @@ const OrderPlacement = () => {
               </Form.Select>
             </Form.Group>
 
-            {/* Quantity Input */}
+   
             <Form.Group controlId="quantity" className="mb-3">
               <Form.Label>Quantity (liters or kg)</Form.Label>
               <Form.Control
@@ -62,7 +62,7 @@ const OrderPlacement = () => {
               />
             </Form.Group>
 
-            {/* Payment Option */}
+
             <Form.Group controlId="paymentOption" className="mb-3">
               <Form.Label>Payment Option</Form.Label>
               <Form.Select
@@ -104,7 +104,7 @@ const OrderPlacement = () => {
               />
             </Form.Group>
 
-            {/* Submit Button */}
+
             <div className="text-center">
               <Button
                 variant="primary"

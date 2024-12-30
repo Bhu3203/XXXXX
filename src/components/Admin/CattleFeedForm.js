@@ -1,4 +1,3 @@
-// CattleFeedForm.js
 import React, { useState } from "react";
 import "./CattleFeedForm.css";
 
@@ -20,14 +19,12 @@ const CattleFeedForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Save data to localStorage
     const storedFeeds = JSON.parse(localStorage.getItem("cattleFeeds")) || [];
     storedFeeds.push(formData);
     localStorage.setItem("cattleFeeds", JSON.stringify(storedFeeds));
 
     alert("Cattle feed record saved successfully!");
 
-    // Reset Form
     setFormData({
       farmerName: "",
       date: "",

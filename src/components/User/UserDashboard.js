@@ -74,16 +74,16 @@ const UserDashboard = () => {
         </div>
       </nav>
 
-      {/* Confirmation Modal */}
+ 
       <ConfirmationModal
         isOpen={showModal}
         onClose={handleModalClose}
         onConfirm={handleLogoutConfirm}
       />
 
-      {/* Sidebar and Content Section */}
+  
       <div className="Udashboard-container">
-        {/* Sidebar */}
+
         <aside className="Usidebar">
           <button onClick={() => setActiveTab("UHome")}>Dashboard</button>
           
@@ -94,7 +94,7 @@ const UserDashboard = () => {
          
         </aside>
 
-        {/* Main Content */}
+  
         <main className="Ucontent">
           {renderContent()}
         </main>
@@ -108,7 +108,7 @@ const UserDashboard = () => {
   );
 };
 
-// Confirmation Modal Component
+
 const ConfirmationModal = ({ isOpen, onClose, onConfirm }) => {
   if (!isOpen) return null;
 
@@ -129,7 +129,7 @@ const ConfirmationModal = ({ isOpen, onClose, onConfirm }) => {
   );
 };
 
-// Navbar and button styles
+
 const styles = {
   navbar: {
     display: "flex",
@@ -165,7 +165,7 @@ const styles = {
   },
 };
 
-// Styles for the Modal
+
 const modalStyles = {
   overlay: {
     position: "fixed",

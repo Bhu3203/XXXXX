@@ -1,5 +1,5 @@
 import React from 'react'
-import './AboutUs.css' // Create this CSS file for better organization
+import './AboutUs.css' 
 
 export default function AboutUs() {
   return (
@@ -13,7 +13,7 @@ export default function AboutUs() {
         />
       </div>
 
-      {/* Content Section */}
+  
       <div className=" text-center content-container">
         
         <div>
@@ -39,7 +39,7 @@ export default function AboutUs() {
           </span>
         </div>
 
-        {/* Vision Image */}
+      
         <div className="text-center">
           <img 
             src="https://pravarshaindustries.com/img/vision.webp" 

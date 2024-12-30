@@ -25,12 +25,12 @@ body {
   flex-wrap: wrap;
 }
 
-.product-item {
+.product-items {
   text-align: center;
   width: 120px;
 }
 
-.product-item img {
+.product-items img {
   width: 200px;
   height: 120px;
   border-radius: 90%;
@@ -40,7 +40,7 @@ body {
   background-color: #fff;
 }
 
-.product-item p {
+.product-items p {
   margin-top: 10px;
   font-size: 16px;
   color: #555;

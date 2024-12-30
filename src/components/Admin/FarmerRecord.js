@@ -11,14 +11,14 @@ export default function FarmerRecord() {
 
   const navigate = useNavigate();
 
-  // Load records from localStorage on component mount
+  
   useEffect(() => {
     const storedRecords = JSON.parse(localStorage.getItem("milkRecords")) || [];
     setRecords(storedRecords);
     setFilteredRecords(storedRecords);
   }, []);
 
-  // Filter records based on selected farmer
+
   useEffect(() => {
     let filtered = records;
     if (selectedFarmer) {
@@ -27,7 +27,7 @@ export default function FarmerRecord() {
       );
     }
 
-    // Filter by date range if both dates are provided
+   
     if (startDate && endDate) {
       filtered = filtered.filter((record) => {
         const recordDate = new Date(record.date);
@@ -44,7 +44,7 @@ export default function FarmerRecord() {
 
   return (
     <div className="milk-record-container">
-      {/* Filters */}
+ 
       <div className="filters">
         <label>
           Select start date:
@@ -74,7 +74,7 @@ export default function FarmerRecord() {
         <button onClick={handleGenerateReport}>Generate Report</button>
       </div>
 
-      {/* Table */}
+
       <div className="table-container">
         <table>
           <thead>
@@ -106,7 +106,7 @@ export default function FarmerRecord() {
         </table>
       </div>
 
-      {/* Footer Stats */}
+
       <div className="footer-stats">
         <table>
           <thead>

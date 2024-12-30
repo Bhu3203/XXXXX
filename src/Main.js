@@ -26,27 +26,27 @@ export default function Main() {
 <div className="products-container text-center">
         <h1>All Farm Fresh Products At One Place...</h1>
         <div className="products-grid">
-          <div className="product-item">
+          <div className="product-items">
             <img src="https://pravarshaindustries.com/storage/subcategories/RoGa67tN2sfhnQNoXXKpQgZdZMkXJQWdwk8LEuiW.png" alt="Milk" />
             <p>Milk</p>
           </div>
-          <div className="product-item">
+          <div className="product-items">
             <img src="https://pravarshaindustries.com/storage/subcategories/RoGa67tN2sfhnQNoXXKpQgZdZMkXJQWdwk8LEuiW.png" alt="Ghee" />
             <p>Ghee</p>
           </div>
-          <div className="product-item">
+          <div className="product-items">
             <img src="https://pravarshaindustries.com/storage/subcategories/RoGa67tN2sfhnQNoXXKpQgZdZMkXJQWdwk8LEuiW.png" alt="Paneer" />
             <p>Paneer</p>
           </div>
-          <div className="product-item">
+          <div className="product-items">
             <img src="https://pravarshaindustries.com/storage/subcategories/RoGa67tN2sfhnQNoXXKpQgZdZMkXJQWdwk8LEuiW.png" alt="Curd" />
             <p>Curd</p>
           </div>
-          <div className="product-item">
+          <div className="product-items">
             <img src="https://pravarshaindustries.com/storage/subcategories/RoGa67tN2sfhnQNoXXKpQgZdZMkXJQWdwk8LEuiW.png" alt="Buttermilk" />
             <p>Buttermilk</p>
           </div>
-          <div className="product-item">
+          <div className="product-items">
             <img src="https://pravarshaindustries.com/storage/subcategories/RoGa67tN2sfhnQNoXXKpQgZdZMkXJQWdwk8LEuiW.png" alt="Combo Products" />
             <p>Combo Products</p>
           </div>

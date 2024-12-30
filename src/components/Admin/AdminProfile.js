@@ -2,13 +2,13 @@ import React from "react";
 
 const AdminProfile = () => {
   const admin = {
-    name: "Alice Smith",
+    name: "Bhushan Jadhav",
     idNo: "A98765",
     photo: "https://via.placeholder.com/150",
     mobile: "+1-987-654-3210",
-    email: "alice.smith@example.com",
+    email: "Bhushanjadhav@example.com",
     role: "Administrator",
-    experience: "8 years",
+    experience: "2 years",
   };
 
   return (
@@ -16,19 +16,25 @@ const AdminProfile = () => {
       <h2 className="heading">Admin Profile</h2>
       <div className="card">
         <div className="card-left">
-          <img
-            src={admin.photo}
-            alt="Admin"
-            className="profile-photo"
-          />
+          <img src={admin.photo} alt="Admin" className="profile-photo" />
         </div>
         <div className="card-right">
           <h3>{admin.name}</h3>
-          <p><strong>ID No:</strong> {admin.idNo}</p>
-          <p><strong>Mobile:</strong> {admin.mobile}</p>
-          <p><strong>Email:</strong> {admin.email}</p>
-          <p><strong>Role:</strong> {admin.role}</p>
-          <p><strong>Experience:</strong> {admin.experience}</p>
+          <p>
+            <strong>ID No:</strong> {admin.idNo}
+          </p>
+          <p>
+            <strong>Mobile:</strong> {admin.mobile}
+          </p>
+          <p>
+            <strong>Email:</strong> {admin.email}
+          </p>
+          <p>
+            <strong>Role:</strong> {admin.role}
+          </p>
+          <p>
+            <strong>Experience:</strong> {admin.experience}
+          </p>
         </div>
       </div>
 

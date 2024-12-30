@@ -1,116 +1,8 @@
-// import React, { useState } from "react";
-// import { FaUser, FaSignOutAlt } from "react-icons/fa";
-// import "./AdminDashboard.css";
-
-// // Import your components
-// import CattleFeedForm from "./CattleFeedForm";
-// import FarmerLoan from "./FarmerLoan";
-// import FarmerRecord from "./FarmerRecord";
-// import CustMilkDetails from "./CustMilkDetails";
-// import Add_Milk_Record from "./Add_Milk_Record";
-// import Add_User_Milk_Details from "./Add_User_Milk_Details";
-// import AddMilkRecord from "./AddMilkRecord";
-// import LoanAndFeedRecord from "./LoanAndFeedRecord";
-// import Dash from "./Dash";
-// import ProductUpload from "./Product/ProductUpload";
-
-// const AdminDashboard = () => {
-//   const [activeTab, setActiveTab] = useState("");
-
-//   const handleLogout = () => {
-//     window.location.href = "/main"; 
-//   };
-
-//   const handleProfile = () => {
-//     window.location.href = "/profile";
-//   };
-
-//   const renderContent = () => {
-//     switch (activeTab) {
-//       case "Add_Milk_Record":
-//         return <Add_Milk_Record />;
-//       case "CattleFeedForm":
-//         return <CattleFeedForm />;
-//       case "FarmerLoan":
-//         return <FarmerLoan />;
-//       case "AddMilkRecord":
-//         return <AddMilkRecord />;
-//       case "FarmerRecord":
-//         return <FarmerRecord />;
-//       case "LoanAndFeedRecord":
-//         return <LoanAndFeedRecord />;
-//       case "Add_User_Milk_Details":
-//         return <Add_User_Milk_Details />;
-//       case "CustMilkDetails":
-//         return <CustMilkDetails />;
-//       case "productupload":
-//         return <ProductUpload />;
-//       default:
-//         return <Dash />;
-//     }
-//   };
-
-//   return (
-//     <div className="admin-dashboard">
-//       {/* Navbar */}
-//       {/* <div className="navbar">
-//         <div className="navbar-brand-text">Sadguru Digitalization</div>
-//         <div className="navbar-links">
-//           <button onClick={handleProfile} className="nav-link">
-//             <FaUser className="icon" /> <span>Profile</span>
-           
-//           </button>
-//           <button onClick={handleLogout} className="nav-link">
-//             <FaSignOutAlt className="icon" /> <span>Logout</span>
-//           </button>
-//         </div>
-//       </div> */}
-      
-
-//       {/* Sidebar and Content Section */}
-//       <div className="dashboard-container">
-//         {/* Sidebar */}
-//         <aside className="sidebar">
-//           <button onClick={() => setActiveTab("Dash")}>Dashboard</button>
-//           <h5>Farmer</h5>
-//           <button onClick={() => setActiveTab("Add_Milk_Record")}>Add Milk Record</button>
-//           <button onClick={() => setActiveTab("CattleFeedForm")}>Cattle Feed Form</button>
-//           <button onClick={() => setActiveTab("FarmerLoan")}>Farmer Loan</button>
-//           <button onClick={() => setActiveTab("AddMilkRecord")}>Show Milk Record</button>
-//           <button onClick={() => setActiveTab("FarmerRecord")}>Farmer Record</button>
-//           <button onClick={() => setActiveTab("LoanAndFeedRecord")}>Loan and Feed Record</button>
-
-//           <h5 className="mt-3">Customer</h5>
-//           <button onClick={() => setActiveTab("Add_User_Milk_Details")}>Add User Milk Details</button>
-//           <button onClick={() => setActiveTab("CustMilkDetails")}>Customer Milk Details</button>
-//           <h5 className="mt-3">Product</h5>
-//           <button onClick={() => setActiveTab("productupload")}>Product</button>
-//           {/* <button onClick={() => setActiveTab("CustMilkDetails")}>Customer Milk Details</button> */}
-//         </aside>
-
-//         {/* Main Content */}
-//         <main className="content">
-//           {renderContent()}
-//         </main>
-//       </div>
-
-//       {/* Footer */}
-//       <footer className="footer">
-//         <p>© 2024 Sadguru Digitalization | Empowering Farmers</p>
-//       </footer>
-//     </div>
-//   );
-// };
-
-// export default AdminDashboard;
-
-
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { FaUserCircle } from "react-icons/fa"; // Profile icon from react-icons
+import { FaUserCircle } from "react-icons/fa";
 import "./AdminDashboard.css";
 
-// Import your components
 import CattleFeedForm from "./CattleFeedForm";
 import FarmerLoan from "./FarmerLoan";
 import FarmerRecord from "./FarmerRecord";
@@ -128,20 +20,20 @@ const AdminDashboard = () => {
   const navigate = useNavigate();
 
   const handleProfileClick = () => {
-    navigate("/admindash/adminprofile"); // Navigates to the Profile page
+    navigate("/admindash/adminprofile");
   };
 
   const handleLogoutClick = () => {
-    setShowModal(true); // Show the logout confirmation modal
+    setShowModal(true);
   };
 
   const handleLogoutConfirm = () => {
-    setShowModal(false); // Close the modal
-    navigate("/Main"); // Navigate to the Main page
+    setShowModal(false);
+    navigate("/Main");
   };
 
   const handleModalClose = () => {
-    setShowModal(false); // Close the modal without logging out
+    setShowModal(false);
   };
 
   const renderContent = () => {
@@ -171,7 +63,6 @@ const AdminDashboard = () => {
 
   return (
     <div className="admin-dashboard">
-      {/* Navbar */}
       <nav style={styles.navbar}>
         <div style={styles.left}>
           <h1 style={styles.logo}>Sadguru Digitalization</h1>
@@ -187,40 +78,49 @@ const AdminDashboard = () => {
           </button>
         </div>
       </nav>
-
-      {/* Confirmation Modal */}
       <ConfirmationModal
         isOpen={showModal}
         onClose={handleModalClose}
         onConfirm={handleLogoutConfirm}
       />
-
-      {/* Sidebar and Content Section */}
+      {/* Sidebar */}
       <div className="dashboard-container">
-        {/* Sidebar */}
         <aside className="sidebar">
           <button onClick={() => setActiveTab("Dash")}>Dashboard</button>
           <h5>Farmer</h5>
-          <button onClick={() => setActiveTab("Add_Milk_Record")}>Add Milk Record</button>
-          <button onClick={() => setActiveTab("CattleFeedForm")}>Cattle Feed Form</button>
-          <button onClick={() => setActiveTab("FarmerLoan")}>Farmer Loan</button>
-          <button onClick={() => setActiveTab("AddMilkRecord")}>Show Milk Record</button>
-          <button onClick={() => setActiveTab("FarmerRecord")}>Farmer Record</button>
-          <button onClick={() => setActiveTab("LoanAndFeedRecord")}>Loan and Feed Record</button>
+          <button onClick={() => setActiveTab("Add_Milk_Record")}>
+            Add Milk Record
+          </button>
+          <button onClick={() => setActiveTab("CattleFeedForm")}>
+            Cattle Feed Form
+          </button>
+          <button onClick={() => setActiveTab("FarmerLoan")}>
+            Farmer Loan
+          </button>
+          <button onClick={() => setActiveTab("AddMilkRecord")}>
+            Show Milk Record
+          </button>
+          <button onClick={() => setActiveTab("FarmerRecord")}>
+            Farmer Record
+          </button>
+          <button onClick={() => setActiveTab("LoanAndFeedRecord")}>
+            Loan and Feed Record
+          </button>
 
           <h5 className="mt-3">Customer</h5>
-          <button onClick={() => setActiveTab("Add_User_Milk_Details")}>Add User Milk Details</button>
-          <button onClick={() => setActiveTab("CustMilkDetails")}>Customer Milk Details</button>
+          <button onClick={() => setActiveTab("Add_User_Milk_Details")}>
+            Add User Milk Details
+          </button>
+          <button onClick={() => setActiveTab("CustMilkDetails")}>
+            Customer Milk Details
+          </button>
           <h5 className="mt-3">Product</h5>
           <button onClick={() => setActiveTab("productupload")}>Product</button>
         </aside>
 
         {/* Main Content */}
-        <main className="content">
-          {renderContent()}
-        </main>
+        <main className="content">{renderContent()}</main>
       </div>
-
       Footer
       <footer className="footer">
         <p>© 2024 Sadguru Digitalization | Empowering Farmers</p>
@@ -229,7 +129,6 @@ const AdminDashboard = () => {
   );
 };
 
-// Confirmation Modal Component
 const ConfirmationModal = ({ isOpen, onClose, onConfirm }) => {
   if (!isOpen) return null;
 
@@ -250,7 +149,6 @@ const ConfirmationModal = ({ isOpen, onClose, onConfirm }) => {
   );
 };
 
-// Navbar and button styles
 const styles = {
   navbar: {
     display: "flex",
@@ -286,7 +184,6 @@ const styles = {
   },
 };
 
-// Styles for the Modal
 const modalStyles = {
   overlay: {
     position: "fixed",

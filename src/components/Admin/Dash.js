@@ -9,8 +9,8 @@ const data = [
     createdAt: '8/25/2024, 10:54:04 PM',
     updatedAt: '8/25/2024, 11:30:58 PM',
     status: 'Active',
-    milkCollected: 150, // in liters
-    snfCollected: 50, // in liters
+    milkCollected: 150, 
+    snfCollected: 50, 
   },
   {
     id: 2,
@@ -19,8 +19,8 @@ const data = [
     createdAt: '8/25/2024, 10:54:40 PM',
     updatedAt: '8/25/2024, 10:54:40 PM',
     status: 'Active',
-    milkCollected: 200, // in liters
-    snfCollected: 70, // in liters
+    milkCollected: 200,
+    snfCollected: 70, 
   },
 ];
 
@@ -34,7 +34,7 @@ function Dash() {
       (filterStatus === '' || item.status === filterStatus)
   );
 
-  // Calculate totals
+  
   const totalMilkCow = data
     .filter((item) => item.category === 'COW')
     .reduce((sum, item) => sum + item.milkCollected, 0);

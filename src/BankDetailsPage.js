@@ -49,9 +49,10 @@ const BankDetailsPage = () => {
         return;
       }
   
-      if (!/^[A-Za-z]{4}[0-9]{2}[A-Za-z0-9]{10}$/.test(swiftCode)) {
-        setErrorMessage("Please Enter a valid SWIFT/BIC code!");
-        return;
+     if (!/^[A-Za-z]{4}[A-Za-z]{2}[A-Za-z]{3}$/.test(swiftCode)) {
+    setErrorMessage("Please Enter a valid SWIFT/BIC code!");
+    return;
+}
       }
   
       console.log("Account Holder Name:", accountHolderName);
@@ -61,7 +62,7 @@ const BankDetailsPage = () => {
       console.log("IFSC Code:", ifscCode);
       console.log("SWIFT/BIC Code:", swiftCode);
   
-      navigate("/farmerlogin"); // Navigate to a confirmation page or another route after successful submission
+      navigate("/farmerlogin"); 
     };
   
     return (
@@ -135,6 +136,6 @@ const BankDetailsPage = () => {
       </>
   
   );
-};
+
 
 export default BankDetailsPage;

@@ -46,7 +46,7 @@ export default function BuySellCattle() {
     <div className="container mt-4" style={{ width:"700px",position:"relative", left:"100px"}}>
       <h1 className="text-center mb-4">Sell Your Cattle</h1>
 
-      {/* Form Section */}
+
       <form onSubmit={handleSubmit} className="mb-4">
         <div className="mb-3">
           <label className="form-label">Seller Name:</label>
@@ -145,7 +145,7 @@ export default function BuySellCattle() {
         </button>
       </form>
 
-      {/* Display Section */}
+      
       {cattleList.length > 0 && (
         <div>
           <h2 className="text-center mb-3">Available Cattle</h2>

@@ -8,7 +8,7 @@ const MyProfile = () => {
         phone: "+91912345678",
         address: "123 Main Street, City, Country",
         role: "Dudha Seller",
-        image: "https://via.placeholder.com/150", // Placeholder image
+        image: "https://via.placeholder.com/150",
     });
 
     const [showModal, setShowModal] = useState(false);

@@ -5,9 +5,9 @@ import "./MilkReport.css";
 const MilkReport = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { farmerRecords } = location.state || { farmerRecords: [] }; // Default to empty if no data
+  const { farmerRecords } = location.state || { farmerRecords: [] };
 
-  // Calculate Averages and Totals
+
   const totalEntries = farmerRecords.length;
   const avgFat =
     totalEntries > 0

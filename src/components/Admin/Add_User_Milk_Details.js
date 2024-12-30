@@ -36,7 +36,7 @@ export default function Add_User_Milk_Details() {
 
     alert("Milk Details Saved Successfully!");
 
-    // Clear the form
+   
     setFormData({
       date: "",
       cattle: "cow",

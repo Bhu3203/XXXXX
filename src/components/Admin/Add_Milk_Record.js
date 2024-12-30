@@ -4,9 +4,9 @@ import "./Add_Milk_Record.css";
 const Add_Milk_Record = ({ onSave }) => {
   const [formData, setFormData] = useState({
     date: "",
-    time: "M", // Default to morning
-    cattle: "cow", // Default cattle type
-    farmer: "farmer1", // Default farmer name
+    time: "M",
+    cattle: "cow",
+    farmer: "farmer1",
     idNo: "",
     litre: 0,
     fat: 0,
@@ -14,16 +14,17 @@ const Add_Milk_Record = ({ onSave }) => {
     totalAmount: 0,
   });
 
-  const pricePerLitre = 50; // Constant price per litre
+  const pricePerLitre = 50;
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => {
       const updatedData = { ...prev, [name]: value };
-      // Recalculate total amount when fat or snf changes
+
       if (name === "fat" || name === "snf") {
         const totalAmount =
-          (parseFloat(updatedData.fat) + parseFloat(updatedData.snf)) * pricePerLitre;
+          (parseFloat(updatedData.fat) + parseFloat(updatedData.snf)) *
+          pricePerLitre;
         updatedData.totalAmount = isNaN(totalAmount) ? 0 : totalAmount;
       }
       return updatedData;
@@ -36,9 +37,8 @@ const Add_Milk_Record = ({ onSave }) => {
     const updatedRecords = [...savedRecords, formData];
     localStorage.setItem("milkRecords", JSON.stringify(updatedRecords));
     alert("Information saved successfully!");
-    onSave(formData); // Trigger the callback to notify parent
+    onSave(formData);
 
-    // Reset form after saving
     setFormData({
       date: "",
       time: "M",
