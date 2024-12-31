@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import "./Add_Milk_Record.css";
 
-const Add_Milk_Record = ({ onSave }) => {
+const Add_Milk_Record = () => {
   const [formData, setFormData] = useState({
     farmerId: "",
     farmerName: "",
-    date: "",
     time: "M",
     cattle: "cow",
     litre: 0,
@@ -63,17 +62,20 @@ const Add_Milk_Record = ({ onSave }) => {
       return;
     }
 
+    const currentDate = new Date().toISOString().split("T")[0]; // YYYY-MM-DD format
+
     const savedRecords = JSON.parse(localStorage.getItem("milkRecords")) || [];
-    const updatedRecords = [...savedRecords, formData];
+    const updatedRecords = [
+      ...savedRecords,
+      { ...formData, date: currentDate },
+    ];
     localStorage.setItem("milkRecords", JSON.stringify(updatedRecords));
 
     alert("Milk record saved successfully!");
-    onSave(formData);
 
     setFormData({
       farmerId: "",
       farmerName: "",
-      date: "",
       time: "M",
       cattle: "cow",
       litre: 0,
@@ -112,7 +114,7 @@ const Add_Milk_Record = ({ onSave }) => {
           <p style={{ color: "red", marginTop: "5px" }}>{errorMessage}</p>
         )}
 
-        {/* Farmer Name Display */}
+        {/* Farmer Name */}
         <label htmlFor="farmerName">Farmer Name:</label>
         <input
           type="text"
@@ -123,18 +125,7 @@ const Add_Milk_Record = ({ onSave }) => {
           placeholder="Farmer Name"
         />
 
-        {/* Date Input */}
-        <label htmlFor="date">Date:</label>
-        <input
-          type="date"
-          id="date"
-          name="date"
-          value={formData.date}
-          onChange={handleInputChange}
-          required
-        />
-
-        {/* Time Selection */}
+        {/* Time */}
         <label htmlFor="time">Time:</label>
         <select
           id="time"
@@ -147,7 +138,7 @@ const Add_Milk_Record = ({ onSave }) => {
           <option value="E">Evening</option>
         </select>
 
-        {/* Cattle Selection */}
+        {/* Cattle */}
         <label htmlFor="cattle">Cattle:</label>
         <select
           id="cattle"

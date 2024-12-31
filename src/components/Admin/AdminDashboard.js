@@ -12,6 +12,7 @@ import Add_User_Milk_Details from "./Add_User_Milk_Details";
 import AddMilkRecord from "./AddMilkRecord";
 import LoanAndFeedRecord from "./LoanAndFeedRecord";
 import Dash from "./Dash";
+import MilkReport from "./MilkReport";
 import ProductUpload from "./Product/ProductUpload";
 
 const AdminDashboard = () => {
@@ -54,6 +55,8 @@ const AdminDashboard = () => {
         return <Add_User_Milk_Details />;
       case "CustMilkDetails":
         return <CustMilkDetails />;
+      case "milkreport":
+        return <MilkReport />;
       case "productupload":
         return <ProductUpload />;
       default:
@@ -102,6 +105,9 @@ const AdminDashboard = () => {
           </button>
           <button onClick={() => setActiveTab("FarmerRecord")}>
             Farmer Record
+          </button>
+          <button onClick={() => setActiveTab("milkreport")}>
+             Record
           </button>
           <button onClick={() => setActiveTab("LoanAndFeedRecord")}>
             Loan and Feed Record
