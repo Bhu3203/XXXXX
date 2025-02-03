@@ -181,15 +181,7 @@ const Add_Milk_Record = () => {
           onChange={handleInputChange}
         />
 
-        {/* Total Amount */}
-        <label htmlFor="totalAmount">Total Amount (₹):</label>
-        <input
-          type="number"
-          id="totalAmount"
-          name="totalAmount"
-          value={formData.totalAmount}
-          readOnly
-        />
+        
 
         {/* Submit Button */}
         <button type="submit" className="btn1">

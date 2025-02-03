@@ -2,56 +2,94 @@ import React, { useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./LoginPage.css";
 
-export default function LoginPage() {
-  const farmer = useRef();
-  const pass = useRef();
-  const [error, setError] = useState("");
+export default function LoginPage({ registeredUsers }) {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [selectedRole, setSelectedRole] = useState('Select Role');
+  const [rememberMe, setRememberMe] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
-    const farmerVal = farmer.current.value.trim();
-    const passVal = pass.current.value.trim();
 
-    if (!farmerVal || !passVal) {
-      setError("Username and password cannot be empty.");
-      return;
-    }
-
-    const farmers = JSON.parse(localStorage.getItem("farmers")) || [];
-    const matchedFarmer = farmers.find(
-      (farmer) => farmer.username === farmerVal && farmer.password === passVal
-    );
-
-    if (matchedFarmer) {
-      setError("");
-      navigate("/userdash");
+    if (
+      selectedRole === 'Admin' &&
+      email === 'admin@gmail.com' &&
+      password === 'admin123'
+    ) {
+      setErrorMessage('');
+      alert('Login Successful as Admin!');
+      navigate('/admindash');
     } else {
-      setError("Please enter valid credentials");
+      const user = registeredUsers.find(
+        (user) =>
+          user.email === email &&
+          user.password === password &&
+          user.role.toLowerCase() === selectedRole.toLowerCase()
+      );
+
+      if (user) {
+        setErrorMessage('');
+        alert(`Login Successful as ${user.role}!`);
+        navigate(`/${user.role.toLowerCase()}`);
+      } else {
+        setErrorMessage('Invalid email, password, or role.');
+      }
     }
+  };
+
+  const selectRole = (role) => {
+    setSelectedRole(role);
+    setDropdownOpen(false);
   };
 
   return (
     <div className="unique-login-page">
       <div className="unique-login-container">
         <div className="unique-form-container">
-          <Link to="/loginc" className="signup-link">
+          <Link to="/Main" className="signup-link">
             Back
           </Link>
-          <h1 className="unique-form-title">Farmer</h1>
+          
           <h2 className="unique-form-title">Sign In</h2>
-          <form
-            className="unique-form unique-signin-form"
-            onSubmit={handleLogin}
-          >
+          <form className="unique-form unique-signin-form" onSubmit={handleLogin}>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Role</label>
+              <div className="unique-dropdown-container">
+  <button
+    type="button"
+    onClick={() => setDropdownOpen(!dropdownOpen)}
+    className="unique-dropdown-button"
+  >
+    {selectedRole}
+  </button>
+  {dropdownOpen && (
+    <div className="unique-dropdown-menu">
+      <div onClick={() => selectRole('Admin')} className="unique-dropdown-item">
+        Admin
+      </div>
+      <div onClick={() => selectRole('Farmer')} className="unique-dropdown-item">
+      Farmer
+      </div>
+      <div onClick={() => selectRole('Customer')} className="unique-dropdown-item">
+      Customer
+      </div>
+    </div>
+  )}
+</div>
+
+            </div>
             <div className="unique-form-group">
-              <label htmlFor="username">Username</label>
+              <label htmlFor="email">Email Address</label>
               <input
                 className="unique-form-input"
-                type="text"
-                name="username"
-                placeholder="Enter your username"
-                ref={farmer}
+                type="email"
+                name="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             <div className="unique-form-group">
@@ -61,12 +99,13 @@ export default function LoginPage() {
                 type="password"
                 name="password"
                 placeholder="Enter your password"
-                ref={pass}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
             </div>
             <div className="unique-form-options">
               <label className="unique-checkbox-label">
-                <input type="checkbox" id="keepSignedIn" />
+                <input type="checkbox" id="keepSignedIn" checked={rememberMe} onChange={(e) => setRememberMe(e.target.checked)} />
                 Keep me signed in
               </label>
             </div>
@@ -74,7 +113,7 @@ export default function LoginPage() {
               Sign In
             </button>
           </form>
-          {error && <p className="error-message">{error}</p>}
+          {errorMessage && <p className="error-message">{errorMessage}</p>}
           <div className="unique-signup-link">
             <p>
               New to Sadguru? <Link to="/signup">Sign Up</Link>

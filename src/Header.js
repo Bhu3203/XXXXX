@@ -5,7 +5,7 @@ export default function Header() {
   const navigate = useNavigate();
 
   async function login() {
-    navigate("/loginc");
+    navigate("/userlogin");
   }
 
   return (

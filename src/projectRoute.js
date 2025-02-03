@@ -2,9 +2,9 @@ import React from "react";
 import { createBrowserRouter, Outlet } from "react-router-dom";
 import App from "./App";
 import Header from "./Header";
-import Loginc from "./Loginc";
+// import Loginc from "./Loginc";
 import LoginPage from "./LoginPage";
-import AdminLogin from "./AdminLogin";
+// import AdminLogin from "./AdminLogin";
 import SignUpPage from "./SignUpPage";
 // import Admin from "./components/Admin/Admin";
 import Add_User_Milk_Details from "./components/Admin/Add_User_Milk_Details";
@@ -13,7 +13,7 @@ import LoanAndFeedRecord from "./components/Admin/LoanAndFeedRecord";
 import AddMilkRecord from "./components/Admin/AddMilkRecord";
 // import AdminHeader from "./components/Admin/AdminHeader";
 
-import UserLogin from "./UserLogin";
+// import UserLogin from "./UserLogin";
 import Product from "./Product";
 import BankDetailsPage from "./BankDetailsPage";
 import AboutUs from "./AboutUs";
@@ -36,10 +36,10 @@ const customRoute = createBrowserRouter([
       { path: "Main", element: <Main /> },
       { path: "about", element: <AboutUs /> },
       { path: "product", element: <Product /> },
-      { path: "loginc", element: <Loginc /> },
-      { path: "farmerlogin", element: <LoginPage /> },
-      { path: "adminlogin", element: <AdminLogin /> },
-      { path: "userLogin", element: <UserLogin /> },
+      // { path: "loginc", element: <Loginc /> },
+      { path: "userlogin", element: <LoginPage /> },
+      // { path: "adminlogin", element: <AdminLogin /> },
+      // { path: "userLogin", element: <UserLogin /> },
       { path: "signup", element: <SignUpPage /> },
       { path: "bankdetails", element: <BankDetailsPage /> },
     ],
