@@ -24,8 +24,20 @@ import CattleFeedForm from "./components/Admin/CattleFeedForm";
 import CustMilkDetails from "./components/Admin/CustMilkDetails";
 import AdminDashboard from "./components/Admin/AdminDashboard";
 import AdminProfile from "./components/Admin/AdminProfile";
-import UserDashboard from "./components/User/UserDashboard";
-import MyProfile from "./components/User/MyProfile";
+
+import MyProfile from "./components/User/profile/MyProfile";
+import SideBar from "./components/User/siderBar/SideBar";
+import Dashboard from "./components/User/dashboard/Dashboard";
+import NavigationBar from "./components/User/navBar/NavigationBar";
+
+import Settings from "./components/User/settingComponent/Settings";
+import BillingPayments from "./components/User/billing&paymentPages/BillingPayments";
+import PaymentManagement from "./components/User/milkqualituReport/QualityPricingInfo";
+import CommunityAndSupport from "./components/User/community&support/CommunityAndSupport";
+// import ProductComponents from "./components/User/product/ProductComponents";
+import ProductListing from "./components/User/product/ProductListing";
+
+import BuyAndSellCattle from "./components/User/cattelListingPages/BuyAndSellCattle";
 
 const customRoute = createBrowserRouter([
   {
@@ -68,15 +80,53 @@ const customRoute = createBrowserRouter([
     path: "userdash",
     element: (
       <>
-        <UserDashboard/>
-        <MyProfile/>
+      {/* <HomeUser/> */}
+        <SideBar />
+
+        <NavigationBar />
+        <ProductListing/>
+        <Outlet/>
       </>
     ),
     children: [
       {
-        path:"myprofile",
-        element: <MyProfile/>,
-      }
+        path: "buyandsell",
+        element: <BuyAndSellCattle />,
+      },
+      {
+        path: "sidebar",
+        element: <SideBar />,
+      },
+      {
+        path: "Dashboard",
+        element: <Dashboard/>
+      },
+      {
+        path: "myProfile",
+        element: <MyProfile/>
+      },
+      {
+        path: "settings",
+        element: <Settings/>
+      },
+
+      {
+        path: "billingpayments",
+        element: <BillingPayments/>
+      },
+      {
+        path: "paymentsManagement",
+        element: <PaymentManagement/>
+      },
+      {
+        path: "community&support",
+        element: <CommunityAndSupport/>
+      },
+      {
+        path: "productListing",
+        element: <ProductListing/>
+      },
+      
     ],
   },
 ]);

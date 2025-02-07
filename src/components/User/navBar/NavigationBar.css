@@ -1,0 +1,77 @@
+.UserNav_container{
+    /* display: flex; */
+    justify-content: end;
+    /* color: black !important; */
+    position: fixed !important;
+   
+
+    position: relative;
+    top: 10px;
+    /* left: 300px; */}
+
+a{
+    color: black;
+}
+.Unavbar-brand{
+    position: sticky;
+    left: 70px;
+    top: 5px;
+    font-weight: bold;
+    top: 0;
+    /* opacity: 1; */
+    display: inline-block;
+}
+.farmerSideNavBar{
+    background: skyblue !important;
+    /* background: rgba(255, 255, 240, 0.95) !important;  */
+    /* 0, 0, 139, 0.8 */
+    box-shadow: 0 4px 12px rgba(0, 0, 139, 0.8) !important; 
+    border-radius: 15px;
+    position: fixed !important;
+    top: -1px;
+    height: 70px;
+    width: 1400px !important;
+}
+
+
+
+/* Make navbar text and icons black */
+.navbar .text-black {
+    color: rgb(226, 223, 223) !important; /* Override Bootstrap's default white color */
+}
+
+.navbar-dark .navbar-toggler {
+    color: black;
+    border-color: black;
+}
+
+.dropdown-toggle {
+    background-image: none !important;
+  }
+
+.navbar-dark .nav-link {
+    color: black !important; /* For links in the navbar */
+    position: relative;
+    /* left: 800px; */
+    top: -30px;
+   
+}
+
+.nav-link {
+    position: relative;
+    left:1100px;
+
+}
+
+.navbar-dark .dropdown-menu {
+    background-color: #f8f9fa; /* Light background for dropdown */
+    color: black;
+    position: relative;
+    left: 1040px;
+    top: -1px;
+}
+
+
+#profile-dropdown .dropdown-toggle::after {
+    display: none; /* Hides the dropdown arrow */
+}
