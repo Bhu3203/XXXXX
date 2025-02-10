@@ -1,7 +1,13 @@
 /* 
   /* Navbar styling */
+  /* .nav-container{
+    position: sticky !important;
+  } */
   .navbar {
     padding: 10px 20px;
+    overflow: hidden;
+
+    /* position: sticky !important; */
   }
 
   /* Align navbar links to the right */
@@ -9,6 +15,7 @@
     display: flex;
     align-items: center;
     margin-left: auto;
+    
   }
 
   .nav-link {
@@ -59,4 +66,4 @@
       margin-left: 0;
     }
   }
- */
+ 

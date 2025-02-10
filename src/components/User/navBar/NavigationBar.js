@@ -26,7 +26,7 @@ const NavigationBar = () => {
         
         <Navbar variant="dark" expand="lg" className='farmerSideNavBar'>
               <div className="UserNav_container">
-                <Navbar.Brand href="/userdash" className='Unavbar-brand'>Dairy management</Navbar.Brand>
+                <Navbar.Brand href="/userdash/productPage" className='Unavbar-brand'>Dairy management</Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbar-nav" />
                 <Navbar.Collapse id="navbar-nav">
                   <Nav className="ms-auto">

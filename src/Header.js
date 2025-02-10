@@ -10,8 +10,8 @@ export default function Header() {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
-        <div className="container-fluid">
+      <nav className="navbar navbar-expand-lg bg-body-tertiary sticky-top">
+        <div className="container-fluid nav-container">
           <a className="navbar-brand" href="#">Navbar</a>
           {/* <button
             className="navbar-toggler"

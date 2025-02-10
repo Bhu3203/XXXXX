@@ -84,7 +84,7 @@ const customRoute = createBrowserRouter([
         <SideBar />
 
         <NavigationBar />
-        <ProductListing/>
+        {/* <ProductListing/> */}
         <Outlet/>
       </>
     ),
@@ -123,7 +123,7 @@ const customRoute = createBrowserRouter([
         element: <CommunityAndSupport/>
       },
       {
-        path: "productListing",
+        path: "productPage",
         element: <ProductListing/>
       },
       

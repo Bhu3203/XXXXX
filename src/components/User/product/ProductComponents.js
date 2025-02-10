@@ -1,33 +1,42 @@
-import { margin } from "@mui/system";
-import React from "react";
+
+
 import { useSelector } from "react-redux";
 import "./style.css";
 import { Card, Button, Container, Row, Col } from "react-bootstrap";
 
 const ProductComponents = () => {
     const products = useSelector((state) => state.allProducts.products);
-   
+
+
     return (
         <>
             <Container className="mt-4 product-l ">
-            <Row>
-                {products.map((product) => {
-                    const { id, title, image, price, category } = product;
-                    return (
-                        <Col key={id} md={3} sm={6} xs={12} className="mb-4">
-                            <Card className="h-100 shadow card-data">
-                                <Card.Img variant="top" src={image} style={{ height: "200px", objectFit: "contain" }} />
-                                <Card.Body>
-                                    <Card.Title>{title.substring(0, 20)}...</Card.Title>
-                                    <Card.Text>${price}</Card.Text>
-                                    <Button variant="primary">Buy Now</Button>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                    );
-                })}
-            </Row>
-        </Container>
+                <Row>
+                    {products.map((product) => {
+                        const { sellerName, mobileNo, price, breed, image } = product;
+
+
+
+                        console.log(sellerName);
+
+
+                        return (
+                            <Col key={sellerName} md={3} sm={6} xs={12} className="mb-4">
+                                <Card className="h-100 shadow card-data">
+                                    <Card.Img variant="top" src={image} style={{ height: "200px", objectFit: "contain" }} />
+                                    <Card.Body>
+                                        <Card.Title>{sellerName}...</Card.Title>
+                                        <Card.Text>${price}</Card.Text>
+                                        <Card.Text>{mobileNo}</Card.Text>
+                                        <Card.Text>{breed}</Card.Text>
+                                        <Button variant="primary">Buy Now</Button>
+                                    </Card.Body>
+                                </Card>
+                            </Col>
+                        );
+                    })}
+                </Row>
+            </Container>
         </>
     );
 };
@@ -56,3 +65,4 @@ export default ProductComponents;
 
            
         </div> */}
+
